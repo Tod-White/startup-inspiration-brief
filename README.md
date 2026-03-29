@@ -1,141 +1,152 @@
 # 🚀 Startup Inspiration Daily Brief
 
-每天自动抓取全球创业社区内容，用 Claude AI 打分筛选，推送到 Telegram。
+**English** | [中文](#中文说明)
 
-**核心理念：** 不追大新闻，找非共识机会——那些大平台不报、但有真实商业逻辑的创业故事。
+An agentic workflow that scrapes 13 startup communities daily, scores each item with Claude AI, and pushes a curated digest to Telegram — fully automated, ~$2/month to run.
 
-## 效果示例
+**Core idea:** Skip the big news. Find non-consensus opportunities — real business stories that major platforms ignore but have solid commercial logic.
+
+## ✨ Features
+
+- **13 sources**: Hacker News, Product Hunt, IndieHackers, Reddit, V2EX, 36Kr, podcasts (How I Built This, My First Million, Side Hustle Show), Substack, Brave News/Community Search
+- **AI scoring**: Claude evaluates each item on 5 dimensions — niche appeal, cross-industry potential, regulatory friendliness, executability, business imagination
+- **Smart dedup**: Tracks history across all past reports, no repeats
+- **Telegram push**: Formatted digest delivered daily
+- **Archive**: Every report saved locally as Markdown
+
+## 📋 Sample Output
 
 ```
-📡 今日创业简报 · 2026-03-29
+📡 Startup Brief · 2026-03-29
 
-1｜ 一个人做的 PDF 工具，月收入 $8k
-来源：IndieHackers · 评分：8.2/10
-小众度↑ 可执行性↑ 商业想象力↑
+1｜ Solo dev PDF tool — $8k/month, one person
+Source: IndieHackers · Score: 8.2/10
+↑ Niche  ↑ Executable  ↑ Business potential
 https://...
 
-2｜ 用 Notion 帮餐厅管库存，3个月100家客户
-来源：Reddit/startups · 评分：7.8/10
+2｜ Notion-based inventory for restaurants — 100 clients in 3 months
+Source: Reddit/startups · Score: 7.8/10
 ...
 ```
 
-## 信息源（13个）
+## 🚀 Quick Start
 
-| 来源 | 类型 |
-|------|------|
-| Hacker News | Show HN + Best |
-| Product Hunt | 新产品发布 |
-| IndieHackers | 独立开发者故事 |
-| Reddit r/startups | 创业讨论 |
-| Reddit r/SideProject | 副业项目 |
-| V2EX 创业节点 | 中文创业社区 |
-| 36Kr | 中文科技媒体 |
-| How I Built This | 播客摘要 |
-| My First Million | 播客摘要 |
-| Side Hustle Show | 播客摘要 |
-| Substack 商业/科技 | Newsletter |
-| Brave News Search | 实时新闻 |
-| Brave Community Search | 社区讨论 |
-
-## 评分维度
-
-Claude 从 5 个维度打分（各 1-10 分）：
-
-- **小众度**：大平台有没有报道
-- **跨界度**：是否跨行业组合
-- **监管友好度**：合规风险低
-- **可执行性**：普通人能不能做
-- **商业想象力**：能不能做大
-
-综合分 ≥ 6.5 才入选，每日推送 10 条。
-
-## 快速开始
-
-### 1. 克隆并安装依赖
+### 1. Clone & install
 
 ```bash
-git clone https://github.com/your-username/startup-inspiration-brief
+git clone https://github.com/Tod-White/startup-inspiration-brief
 cd startup-inspiration-brief
 pip install -r requirements.txt
 ```
 
-### 2. 配置环境变量
+### 2. Configure
 
 ```bash
 cp .env.example .env
-# 编辑 .env，填入你的 API keys
+# Edit .env with your API keys
 ```
 
-必填：
-- `CLAUDE_API_KEY`：[Anthropic Console](https://console.anthropic.com) 申请
-- `BRAVE_API_KEY`：[Brave Search API](https://brave.com/search/api/) 申请（有免费额度）
-- `TELEGRAM_CHAT_ID`：和 [@userinfobot](https://t.me/userinfobot) 对话获取
+Required:
+- `CLAUDE_API_KEY` — [Anthropic Console](https://console.anthropic.com)
+- `BRAVE_API_KEY` — [Brave Search API](https://brave.com/search/api/) (free tier available)
+- `TELEGRAM_CHAT_ID` — Chat with [@userinfobot](https://t.me/userinfobot) to get yours
 
-### 3. 运行
+Optional:
+- `FIRECRAWL_API_KEY` — for IndieHackers scraping (free tier)
 
-```bash
-# 加载环境变量并运行
-export $(cat .env | xargs) && python main.py
-```
-
-或者用 run.sh：
+### 3. Run
 
 ```bash
-chmod +x run.sh
 ./run.sh
 ```
 
-### 4. 定时运行（每天自动推送）
+Takes ~15-20 minutes. Report will be pushed to Telegram automatically.
+
+### 4. Schedule daily (cron)
 
 ```bash
-# 每天早上 8:00 运行
 crontab -e
-# 添加：
-0 8 * * * cd /path/to/startup-inspiration-brief && export $(cat .env | xargs) && python main.py
+# Add:
+0 8 * * * cd /path/to/startup-inspiration-brief && ./run.sh
 ```
 
-## 作为 OpenClaw Skill 使用
+## 💰 Cost Estimate
 
-如果你使用 [OpenClaw](https://github.com/openclaw/openclaw)，可以直接安装为 skill：
+| API | Daily usage | Monthly cost |
+|-----|-------------|-------------|
+| Claude Sonnet | ~50k tokens | ~$1.5 |
+| Brave Search | ~30 queries | Free tier |
+| Firecrawl | ~10 crawls | Free tier |
 
-```bash
-# 复制到 skills 目录
-cp -r . ~/.openclaw/workspace/skills/startup-brief/
-```
+**Total: ~$2/month**
 
-然后在对话中触发：
-> "帮我跑一下今天的创业简报"
-
-## 项目结构
+## 📁 Project Structure
 
 ```
-├── main.py              # 主程序，协调所有模块
-├── config.py            # 配置（全部读环境变量）
-├── requirements.txt     # Python 依赖
-├── .env.example         # 环境变量模板
-├── scrapers/            # 各平台抓取器
+├── main.py              # Orchestrator
+├── config.py            # Config (all from env vars)
+├── run.sh               # Entry point
+├── .env.example         # Config template
+├── requirements.txt
+├── scrapers/            # Source scrapers
 │   ├── brave_news.py
 │   ├── brave_community.py
 │   ├── hackernews_api.py
 │   ├── producthunt_rss.py
 │   └── ...
 ├── filters/
-│   └── scorer.py        # Claude AI 打分器
+│   └── scorer.py        # Claude AI scorer
 ├── generators/
-│   └── daily.py         # 简报生成器
-└── archive/             # 历史简报存档（本地）
+│   └── daily.py         # Report generator
+└── archive/             # Local report archive
 ```
 
-## API 费用估算
+## 🔧 OpenClaw Skill
 
-| API | 用量/天 | 费用/月 |
-|-----|---------|--------|
-| Claude Sonnet | ~50k tokens | ~$1.5 |
-| Brave Search | ~30 次查询 | 免费额度内 |
-| Firecrawl | ~10 次 | 免费额度内 |
+If you use [OpenClaw](https://github.com/openclaw/openclaw), install as a skill:
 
-**月总成本：约 $2-3**
+```bash
+cp -r . ~/.openclaw/workspace/skills/startup-brief/
+```
 
-## License
+Then trigger with: *"run startup brief"*
 
-MIT — 自由使用，欢迎 PR。
+---
+
+## 中文说明
+
+一个 Agentic 工作流：每天自动抓取 13 个创业社区，用 Claude AI 打分筛选，推送精选简报到 Telegram。全自动运行，月成本约 $2。
+
+**核心理念：** 不追大新闻，找非共识机会——那些大平台不报、但有真实商业逻辑的创业故事。
+
+### ✨ 功能
+
+- **13个信息源**：Hacker News、Product Hunt、IndieHackers、Reddit、V2EX、36Kr、播客（How I Built This、My First Million、Side Hustle Show）、Substack、Brave 新闻/社区搜索
+- **AI 打分**：Claude 从 5 个维度评估——小众度、跨界度、监管友好度、可执行性、商业想象力
+- **智能去重**：追踪历史简报，不重复推送
+- **Telegram 推送**：每日自动发送格式化简报
+- **本地存档**：每份简报保存为 Markdown 文件
+
+### 🚀 快速开始
+
+```bash
+git clone https://github.com/Tod-White/startup-inspiration-brief
+cd startup-inspiration-brief
+pip install -r requirements.txt
+cp .env.example .env
+# 编辑 .env，填入你的 API keys
+./run.sh
+```
+
+必填配置：
+- `CLAUDE_API_KEY`：[Anthropic Console](https://console.anthropic.com) 申请
+- `BRAVE_API_KEY`：[Brave Search API](https://brave.com/search/api/) 申请（有免费额度）
+- `TELEGRAM_CHAT_ID`：和 [@userinfobot](https://t.me/userinfobot) 对话获取
+
+### 💰 费用估算
+
+月总成本约 **$2**（Claude Sonnet ~$1.5，其余 API 免费额度内）
+
+### License
+
+MIT — 自由使用，欢迎 PR 和 Star ⭐
