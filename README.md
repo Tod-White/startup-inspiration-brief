@@ -21,6 +21,9 @@ An agentic workflow that scrapes 13 startup communities daily, scores each item 
 
 ## 📋 Sample Output
 
+**[🔗 Live Demo →](https://startup-brief-demo.vercel.app)** — bilingual, switch between English / 中文
+
+
 ```
 📡 Startup Brief · 2026-03-29
 
