@@ -23,6 +23,8 @@ An agentic workflow that scrapes 13 startup communities daily, scores each item 
 
 **[🔗 Live Demo →](https://startup-brief-demo.vercel.app)** — bilingual, switch between English / 中文
 
+> ⚠️ The demo shows a sample output — not a product or service. This tool runs on your own server for ~$2/month. Want a custom version for your niche? Fork this repo and go.
+
 
 ```
 📡 Startup Brief · 2026-03-29
