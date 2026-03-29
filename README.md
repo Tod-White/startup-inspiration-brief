@@ -7,6 +7,8 @@
 
 **English** | [中文](#中文说明)
 
+⭐ **If this is useful, a star helps others find it** — and [follow @Tod-White](https://github.com/Tod-White) for more agentic workflows.
+
 An agentic workflow that scrapes 13 startup communities daily, scores each item with Claude AI, and pushes a curated digest to Telegram — fully automated, ~$2/month to run.
 
 **Core idea:** Skip the big news. Find non-consensus opportunities — real business stories that major platforms ignore but have solid commercial logic.
@@ -187,6 +189,8 @@ Then trigger with: *"run startup brief"*
 ---
 
 ## 中文说明
+
+⭐ **如果对你有用，点个 Star 帮助更多人发现这个项目** — 并 [关注 @Tod-White](https://github.com/Tod-White) 获取更多 Agentic 工作流。
 
 一个 Agentic 工作流：每天自动抓取 13 个创业社区，用 Claude AI 打分筛选，推送精选简报到 Telegram。全自动运行，月成本约 $2。
 
