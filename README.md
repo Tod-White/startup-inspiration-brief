@@ -1,5 +1,10 @@
 # 🚀 Startup Inspiration Daily Brief
 
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org)
+[![Agentic Workflow](https://img.shields.io/badge/agentic-workflow-purple.svg)](https://github.com/Tod-White/startup-inspiration-brief)
+[![Stars](https://img.shields.io/github/stars/Tod-White/startup-inspiration-brief?style=social)](https://github.com/Tod-White/startup-inspiration-brief/stargazers)
+
 **English** | [中文](#中文说明)
 
 An agentic workflow that scrapes 13 startup communities daily, scores each item with Claude AI, and pushes a curated digest to Telegram — fully automated, ~$2/month to run.
