@@ -26,17 +26,80 @@ An agentic workflow that scrapes 13 startup communities daily, scores each item 
 > ⚠️ The demo shows a sample output — not a product or service. This tool runs on your own server for ~$2/month. Want a custom version for your niche? Fork this repo and go.
 
 
+---
+
+### 🇬🇧 English Sample
+
 ```
-📡 Startup Brief · 2026-03-29
+📡 Startup Inspiration Brief · 2026-03-28
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1｜ Solo dev PDF tool — $8k/month, one person
-Source: IndieHackers · Score: 8.2/10
-↑ Niche  ↑ Executable  ↑ Business potential
-https://...
+#1 | Eggs priced like wine                           ★ 9.2
+    Source: How I Built This
+    Vital Farms turned commodity eggs into a public company.
+    Not a food story — pure brand arbitrage.
+    "You're not selling a better egg. You're selling an identity."
+    ↑ Cross-industry  ↑ UK market fit  ↑ Narrative moat
+    🟡 1-2yr window
 
-2｜ Notion-based inventory for restaurants — 100 clients in 3 months
-Source: Reddit/startups · Score: 7.8/10
-...
+#2 | Solo dev vs Bloomberg — 99% cheaper              ★ 7.4
+    Source: Reddit r/SaaS
+    Bloomberg metals data: $25,000/yr.
+    He rebuilt the core, made the best part free.
+    Free = moat. Acquisition cost: near zero.
+    ↑ Price arbitrage  ↑ B2B  ↑ No sales team needed
+    🟡 1-2yr window
+
+#3 | Rewrote enterprise component in 1 day            ★ 9.0
+    Source: Hacker News
+    Reco.ai used AI to rewrite a legacy component.
+    Result: saved $500,000/year.
+    Real play: sell this as a fixed-price B2B service.
+    NHS legacy stack density = world-class opportunity.
+    ↑ AI execution  ↑ NHS fit  ↑ Underserved B2B
+    🟡 1-2yr window
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Trends: Brand arbitrage · Legacy AI rewrite · Freemium B2B
+Sources: HN(50) PH(20) Reddit(16) SideHustle(10) 36Kr(20) +7 more
+```
+
+---
+
+### 🇨🇳 中文样本
+
+```
+📡 创业灵感日报 · 2026-03-28
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+#1 | 鸡蛋卖出了葡萄酒的价格                         ★ 9.2
+    来源：How I Built This
+    Vital Farms 把散养蛋做成了上市公司。
+    不是食品故事——是品牌套利。
+    「你卖的不是更好的蛋，你卖的是一种身份认同。」
+    ↑ 跨界  ↑ 英国市场适配  ↑ 叙事护城河
+    🟡 还有1-2年窗口
+
+#2 | 一个人打Bloomberg，定价砍掉99%                  ★ 7.4
+    来源：Reddit r/SaaS
+    Bloomberg金属数据：$25,000/年。
+    他重建了核心功能，把最好的部分免费开放。
+    免费 = 护城河。获客成本：接近零。
+    ↑ 价格套利  ↑ B2B  ↑ 无需销售团队
+    🟡 还有1-2年窗口
+
+#3 | 一天重写企业级组件，省了50万美元               ★ 9.0
+    来源：Hacker News
+    Reco.ai 用 AI 一天重写了遗留组件。
+    结果：每年节省 $500,000。
+    真正机会：把这件事包装成固定报价的B2B服务。
+    NHS 遗留系统密度 = 世界级机会。
+    ↑ AI执行力  ↑ NHS适配  ↑ 被低估的B2B赛道
+    🟡 还有1-2年窗口
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+趋势关键词：品牌套利 · 遗留系统AI改造 · Freemium B2B
+信息源：HN(50) PH(20) Reddit(16) SideHustle(10) 36Kr(20) 共13源
 ```
 
 ## 🚀 Quick Start
